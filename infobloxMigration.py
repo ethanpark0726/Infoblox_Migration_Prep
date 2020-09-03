@@ -11,7 +11,7 @@ fileName = 'Infoblox_Migration_Prep.xlsx'
 
 def getDeviceList():
     routerList = list()
-    device = requests.get('https://akips11.hsnet.ufl.edu/api-script?password=1r0nM@1d3n;function=web_export_device_list;', verify=False)
+    device = requests.get('https://akips11.hsnet.ufl.edu/api-script?password=secret;function=web_export_device_list;', verify=False)
 
     for elem in device.text.splitlines():
         line = elem.split(',')
@@ -20,9 +20,6 @@ def getDeviceList():
             temp.append(line[0])
             temp.append(line[1].strip())
             routerList.append(temp)
-    
-    # sh ip int bri해서 Vlan 정보가 없는 경우 skip하도록 조건 설정
-    #pprint.pprint(routerList)
     
     return routerList
 
