@@ -228,10 +228,8 @@ if __name__ == '__main__':
     print('|    Scripted by Ethan Park, Sep. 2020                        |')
     print('+-------------------------------------------------------------+')
     print()
-    #username = input("Enter your admin ID ==> ")
-    #password = getpass.getpass("Enter your password ==> ")
-    username = 'hpkadm'
-    password = 'Rhakdnj25~!'
+    username = input("Enter your admin ID ==> ")
+    password = getpass.getpass("Enter your password ==> ")
     print()
 
     switchList = getDeviceList()
