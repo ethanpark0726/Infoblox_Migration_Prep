@@ -8,7 +8,7 @@ def accessJumpBox(username, password):
 
     print('\n--- Attempting connection to ' + 'IS6 Server... ')
     ssh_newkey = 'Are you sure you want to continue connecting'
-    session = wexpect.spawn('ssh ' + username + '@is6.hsnet.ufl.edu')
+    session = wexpect.spawn('ssh ' + username + '@server')
 
     idx = session.expect([ssh_newkey, 'word', wexpect.EOF])
 
@@ -95,21 +95,21 @@ def commandExecute(session, device):
 
         if device[0].startswith('Y') or device[0].startswith('G'):
             
-            command = 'ip dhcp relay address 10.4.90.6'
+            command = 'ip dhcp relay address x.x.x.x'
             session.sendline(command)
             session.expect(['#', wexpect.EOF])
 
-            command = 'ip dhcp relay address 10.4.90.11'
+            command = 'ip dhcp relay address x.x.x.x'
             session.sendline(command)
             session.expect(['#', wexpect.EOF])
             print(command)
         
         else:
-            command = 'ip helper-address 10.4.90.6'
+            command = 'ip helper-address x.x.x.x'
             session.sendline(command)
             session.expect(['#', wexpect.EOF])
 
-            command = 'ip helper-address 10.4.90.11'
+            command = 'ip helper-address x.x.x.x'
             session.sendline(command)
             session.expect(['#', wexpect.EOF])
 
